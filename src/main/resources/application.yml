@@ -1,0 +1,28 @@
+server:
+  port: 9191
+
+spring:
+  application:
+    name: keycloak-Test
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/keycloak?autoreconnect=true
+    username: ecommerceapp
+    password: ecommerceapp
+  jpa:
+    show-sql: true
+#    hibernate:
+#      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+
+sso:
+  server-url: http://localhost:8080/auth
+  username: admin
+  password: admin
+  realm: master
+  client-id: admin-cli
+  auth-realm: master
