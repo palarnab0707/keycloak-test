@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "c7b9c304-2694-4fcc-bad9-e245ef67696f",
+		"name": "Keycloak Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12466394",
+		"_collection_link": "https://droidx.postman.co/workspace/shouvick~cbe9db92-e83a-4226-b077-67ea7e83f327/collection/12466394-c7b9c304-2694-4fcc-bad9-e245ef67696f?action=share&source=collection_link&creator=12466394"
+	},
+	"item": [
+		{
+			"name": "Keycloak Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\":\"spaul68\",\r\n    \"emailId\":\"shouvick.paul@dxc.com\",\r\n    \"firstname\":\"Shouvvick\",\r\n    \"lastName\":\"Paul\",\r\n    \"password\":\"welcome\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9199/registration-service/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9199",
+					"path": [
+						"registration-service",
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\":\"spaul68\",\r\n    \"emailId\":\"shouvick.paul@dxc.com\",\r\n    \"firstname\":\"Shouvick\",\r\n    \"lastName\":\"Paul\",\r\n    \"password\":\"welcome\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9199/registration-service/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9199",
+							"path": [
+								"registration-service",
+								"api",
+								"user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "24"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 27 Aug 2023 18:05:08 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "User Added Successfully."
+				}
+			]
+		},
+		{
+			"name": "login keycloak",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "session-service",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "LuJxBL51wUCPGV8LVmHGyVj7GdzkghF3",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "spaul68",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "welcome",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/realms/master/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"master",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "session-service",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "LuJxBL51wUCPGV8LVmHGyVj7GdzkghF3",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "spaul68",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "welcome",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/realms/master/protocol/openid-connect/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"realms",
+								"master",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "KEYCLOAK_LOCALE=; Version=1; Comment=Expiring cookie; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Max-Age=0; Path=/realms/master/; HttpOnly"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "KC_RESTART=; Version=1; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Max-Age=0; Path=/realms/master/; HttpOnly"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "content-length",
+							"value": "2236"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJwdE1zZ3NVXzZjQy1IUm42WXZ5QnpDRHZkaHpzRlY3eWV1anA0aExXb3VnIn0.eyJleHAiOjE2OTMxNTk2NDcsImlhdCI6MTY5MzE1OTU4NywianRpIjoiMGM4OGY3ZTItMGJmYy00YTA1LTk0MjktZWM0OGQ2ZDMzMjFmIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9tYXN0ZXIiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZGRjMjk4NGMtN2RiMC00ZGE0LTg4NzctY2JhZDg4NTMzODc0IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoic2Vzc2lvbi1zZXJ2aWNlIiwic2Vzc2lvbl9zdGF0ZSI6ImJhYTRjYjk0LTMxNjYtNDRhNS04NzFjLWZiNjcxZDRlZTA5MSIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1tYXN0ZXIiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiYmFhNGNiOTQtMzE2Ni00NGE1LTg3MWMtZmI2NzFkNGVlMDkxIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJuYW1lIjoiU2hvdXZpY2sgUGF1bCIsInByZWZlcnJlZF91c2VybmFtZSI6InNwYXVsNjgiLCJnaXZlbl9uYW1lIjoiU2hvdXZpY2siLCJmYW1pbHlfbmFtZSI6IlBhdWwiLCJlbWFpbCI6InNob3V2aWNrLnBhdWxAZHhjLmNvbSJ9.iRntXmb_TLhGb3JgVCfvjbgxNT3vFdLgxmFTBsjLqpq5DsCvPThqOIs6nNLu2cJuz3sYQ1lJ8Y77JMoneu1IQQhGYkAIOFzQI6M0eEpCzPrKd8x6jDqzn6t24Q0Z-4na8ncZMzzy21QMXpQzIT42x1Jx7lT_zZo0vxTcpGCDKUmJBYGKXHcKLkAsH7l3v243PtfusV8Y3l_jgq7LV9ehi0CKqMsL1F2l2Lx0SVLc_O-hWmsVl7wSOrDQ6Ih7xkCuXXCMIkaUj67NlSY93ZNpkBWJ0CCUI9G_a1OAH2yOS1-MblQ1Z7NVR6X1DhS003ceiflzttSddEtJibtlsoucBw\",\n    \"expires_in\": 60,\n    \"refresh_expires_in\": 1800,\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIzZGY4NDMxZC05OWUwLTQzNDUtOWRiMC1jYmViN2IyMzcwZmQifQ.eyJleHAiOjE2OTMxNjEzODcsImlhdCI6MTY5MzE1OTU4NywianRpIjoiMGI4Yzg3NzYtNWQwNC00YzhkLWIzMTEtNjQ5N2EwNDM5ODIxIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9tYXN0ZXIiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvcmVhbG1zL21hc3RlciIsInN1YiI6ImRkYzI5ODRjLTdkYjAtNGRhNC04ODc3LWNiYWQ4ODUzMzg3NCIsInR5cCI6IlJlZnJlc2giLCJhenAiOiJzZXNzaW9uLXNlcnZpY2UiLCJzZXNzaW9uX3N0YXRlIjoiYmFhNGNiOTQtMzE2Ni00NGE1LTg3MWMtZmI2NzFkNGVlMDkxIiwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiYmFhNGNiOTQtMzE2Ni00NGE1LTg3MWMtZmI2NzFkNGVlMDkxIn0.dmN3GX8v03Er9ynobcYCedJVreULMf84c_FlGRhDsr0\",\n    \"token_type\": \"Bearer\",\n    \"not-before-policy\": 0,\n    \"session_state\": \"baa4cb94-3166-44a5-871c-fb671d4ee091\",\n    \"scope\": \"profile email\"\n}"
+				}
+			]
+		}
+	]
+}
