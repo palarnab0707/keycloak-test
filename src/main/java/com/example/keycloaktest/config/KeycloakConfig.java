@@ -4,22 +4,33 @@ import org.jboss.resteasy.client.jaxrs.internal.ResteasyClientBuilderImpl;
 import org.keycloak.OAuth2Constants;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.KeycloakBuilder;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class KeycloakConfig  {
     static Keycloak keycloak = null;
-    final static String serverUrl = "http://localhost:8080";
-    public final static String realm = "master";
-    final static String clientId = "admin-cli";
-    final static String clientSecret = "66tpSSB0LMO8OdEVRKSMvlWdRZq9VZW2";
-    final static String userName = "admin";
-    final static String password = "admin";
+    @Value("${sso.server-url}")
+    private String serverUrl = "http://localhost:8080";
+    @Value("${sso.realm}")
+    private String realm = "master";
+    @Value("${sso.client-id}")
+    private String clientId = "admin-cli";
+    @Value("${sso.client-secret}")
+    private String clientSecret = "66tpSSB0LMO8OdEVRKSMvlWdRZq9VZW2";
+    @Value("${sso.username}")
+    private String userName = "admin";
+    @Value("${sso.password}")
+    private String password = "admin";
 
     public KeycloakConfig() {
     }
 
-    public static Keycloak getInstance(){
+    public String getRelamName(){
+        return realm;
+    }
+
+    public Keycloak getInstance(){
         if(keycloak == null){
            
             keycloak = KeycloakBuilder.builder()

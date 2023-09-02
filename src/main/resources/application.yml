@@ -7,7 +7,7 @@ spring:
     name: keycloak-Test
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/keycloak?autoreconnect=true
+    url: jdbc:mysql://localhost:3306/registration_service?autoreconnect=true
     username: root
     password: welcome
   jpa:

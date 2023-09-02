@@ -3,14 +3,16 @@ package com.example.keycloaktest.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.keycloaktest.dto.UserDTO;
+import com.example.keycloaktest.dto.IdentityDTO;
 import com.example.keycloaktest.service.KeyCloakService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(path = "/api/user")
@@ -22,9 +24,9 @@ public class KeycloakTestController {
 	KeyCloakService service;
 
 	@PostMapping
-	public String addUser(@RequestBody UserDTO userDTO) {
-		service.addUser(userDTO);
-		return "User Added Successfully.";
+	public ResponseEntity<IdentityDTO> addUser(@Valid @RequestBody IdentityDTO userDTO) {
+		IdentityDTO userIdentity = service.addUser(userDTO);
+		return ResponseEntity.ok().body(userIdentity);
 	}
 
 }

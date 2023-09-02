@@ -1,18 +1,23 @@
-package com.example.keycloaktest.controller;
+package com.example.keycloaktest.dto;
+
+import jakarta.validation.constraints.NotNull;
 
 public class IdentityDTO {
 	
 	private String identityId;
+	@NotNull
 	private String loginId;
+	@NotNull
 	private String firstName;
+	@NotNull
 	private String lastName;
+	@NotNull
 	private String emailId;
+	@NotNull
 	private String password;
+	@NotNull
 	private String userType;
-	private String message;
-	private boolean isTemporaryCredentials;
 	private boolean enabled;
-	private Long createdTimestamp;
 
 	public String getIdentityId() {
 		return identityId;
@@ -56,28 +61,11 @@ public class IdentityDTO {
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
-	public String getMessage() {
-		return message;
-	}
-	public void setMessage(String message) {
-		this.message = message;
-	}
-	public boolean isTemporaryCredentials() {
-		return isTemporaryCredentials;
-	}
-	public void setTemporaryCredentials(boolean isTemporaryCredentials) {
-		this.isTemporaryCredentials = isTemporaryCredentials;
-	}
 	public boolean isEnabled() {
 		return enabled;
 	}
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
-	public Long getCreatedTimestamp() {
-		return createdTimestamp;
-	}
-	public void setCreatedTimestamp(Long createdTimestamp) {
-		this.createdTimestamp = createdTimestamp;
-	}
+
 }
